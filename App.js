@@ -6,7 +6,6 @@ import Login from './components/Login'
 import Data from './components/Data'
 import Settings from './components/Settings'
 import {
-	createAppNavigator,
 	createStackNavigator,
 	createAppContainer,
 	createSwitchNavigator
@@ -20,23 +19,27 @@ function App() {
 		</View>
 	)
 }
-
+// Creating a stack of screens for our home page, you could add a create account here as well
+// and add another screen thatll handle going between logging in or creating an account
 const Home = createStackNavigator({
 	HomeScreen: Login
 })
 
+// Our logged in stack,
+// comes out of the box with a header
 const AuthStack = createStackNavigator({
 	LoggedIn: Data,
 	SettingsScreen: Settings
 })
 
+// Our entire app will be held in here, using switchnavigator to switch between screens
 const AppNav = createAppContainer(
 	createSwitchNavigator({
 		App: Home,
 		Auth: AuthStack
 	})
 )
-export default App
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
@@ -45,3 +48,5 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	}
 })
+
+export default App

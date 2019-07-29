@@ -9,6 +9,8 @@ const Data = (props) => {
 				<Text>Data Screen</Text>
 				<Button
 					title="Settings"
+					// props.navigation is a feature react-navigation gives our app when we initialize or navigators
+					// takes an argument of which screen to navigate to, you can also pass in data through there as well
 					onPress={() => props.navigation.navigate('SettingsScreen')}
 				/>
 			</Card>

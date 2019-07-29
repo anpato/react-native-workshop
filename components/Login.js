@@ -38,6 +38,8 @@ export default class Login extends Component {
 			.signInWithEmailAndPassword(email, password)
 			.then(() => {
 				this.setState({ isAuthenticated: true, isLoading: false })
+				// props.navigation is a feature react-navigation gives our app when we initialize or navigators
+				// takes an argument of which screen to navigate to, you can also pass in data through there as well
 				this.props.navigation.navigate('Auth')
 			})
 			.catch(() =>
@@ -45,6 +47,8 @@ export default class Login extends Component {
 					.createUserWithEmailAndPassword(email, password)
 					.then(() => {
 						this.setState({ isLoading: false, isAuthenticated: true })
+						// props.navigation is a feature react-navigation gives our app when we initialize or navigators
+						// takes an argument of which screen to navigate to, you can also pass in data through there as well
 						this.props.navigation.navigate('Auth')
 					})
 					.catch((error) =>
